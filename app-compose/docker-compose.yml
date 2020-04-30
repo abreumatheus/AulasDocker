@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: padawans_web
+    restart: always
+    links:
+      - db:db-server
+    ports:
+      - 80:80
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    restart: always
+    container_name: padawans_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_DB: padawans
+      POSTGRES_PASSWORD: 123456789

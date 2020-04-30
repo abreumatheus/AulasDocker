@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="bgimg-1 d-flex align-items-center min-vh-100">
+        <div class="container text-center">
+            <img src="{{ url_for('static', filename='img/padawa-logo.webp') }}" class="mx-auto my-auto" alt=""/>
+            <form action="/criar-aluno" method="post">
+                <div class="form-group">
+                    <label for="nome" style="color: black; float: left">Nome</label>
+                    <input id="nome" name="nome" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="sobrenome" style="color: black; float: left">Sobrenome</label>
+                    <input id="sobrenome" name="sobrenome" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="idade" style="color: black; float: left">Idade</label>
+                    <input id="idade" name="idade" type="number" class="form-control">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+            </form>
+            <br>
+            {% if alunos %}
+                <table class="table table-dark">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Sobrenome</th>
+                        <th scope="col">Idade</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for aluno in alunos %}
+                        <tr>
+                            <th scope="row">{{ aluno.id }}</th>
+                            <td>{{ aluno.nome }}</td>
+                            <td>{{ aluno.sobrenome }}</td>
+                            <td>{{ aluno.idade }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
