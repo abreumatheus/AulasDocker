@@ -30,3 +30,6 @@ services: # Arvore principal, que contem todos os nossos serviços
 networks: # Arvore de redes
   frontend: # Rede dos serviços frontend
   backend: # Rede dos serviços backend
+  
+# COMANDO PARA SUBIR A STACK
+# docker-compose up -d
