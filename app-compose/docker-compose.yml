@@ -1,25 +1,32 @@
-version: '3'
+version: '3' # Versão do arquivo compose (este arquivo). Importante usar sempre a versão 3, a mais nova
 
-services:
+services: # Arvore principal, que contem todos os nossos serviços
 
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: padawans_web
-    restart: always
-    links:
-      - db:db-server
-    ports:
-      - 80:80
-    depends_on:
-      - db
+  web: # Serviço da nossa aplicação web
+    build: # Instrução para construir a imagem do container
+      context: . # Pasta onde se encontra o nosso Dockerfile
+      dockerfile: Dockerfile # Nome do Dockerfile
+    container_name: padawans_web # Nome que o nosso container terá quando criado
+    restart: always # Se o container parar por algum motivo, se reiniciará sozinho
+    networks: # Define em que redes em que o container estará ligado
+      - frontend
+      - backend
+    ports: # Liga as portas do nosso computador com as expostas no container
+      - 80:80 # computador:container
+    depends_on: # Cria uma dependência com outro serviço, ou seja, só será executado após suas dependências
+      - database
 
-  db:
-    image: postgres
-    restart: always
-    container_name: padawans_db
-    environment:
+  database: # Serviço do banco de dados
+    image: postgres # Define a imagem a ser utilizada na criação do container
+    restart: always # Se o container parar por algum motivo, se reiniciará sozinho
+    container_name: padawans_db # Nome que o nosso container terá quando criado
+    environment: # Define as variáveis de ambiente
       POSTGRES_USER: admin
       POSTGRES_DB: padawans
       POSTGRES_PASSWORD: 123456789
+    networks: # Define em que redes em que o container estará ligado
+      - backend
+
+networks: # Arvore de redes
+  frontend: # Rede dos serviços frontend
+  backend: # Rede dos serviços backend
