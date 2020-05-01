@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Docker e Docker-Compose</title>
+    <style>
+
+        body {
+            background: #dddfdd none repeat scroll 0 0;
+            color: #46473b;
+            font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+            font-size: 80%;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        #content {
+            background: white none repeat scroll 0 0;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            text-align: left;
+            width: 980px;
+        }
+
+        #body_inner {
+            padding: 20px;
+        }
+
+        .main_title_block {
+            display: inline-flex;
+            margin-bottom: 4%;
+        }
+
+        .main_logo {
+            border-top: 10px solid #bfd4f2;
+            padding: 10px 20px;
+            width: 20%;
+        }
+
+        .main_title {
+            padding-left: 4%;
+            width: 100%;
+        }
+
+        .block {
+            background: #1d76db none repeat scroll 0 0;
+            border-bottom: 3px solid #1d76db;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            padding-bottom: 0;
+        }
+
+        .block_title {
+        / / color: #fee5d3;
+            color: #ffffff;
+            margin: 0;
+            padding: 6px 8px;
+            text-align: left;
+        }
+
+        i {
+            vertical-align: sub
+        }
+
+        .block_text {
+            padding: 5px 10px;
+            background: #bfd4f2 none repeat scroll 0 0;
+        }
+
+        .rows_table {
+            background: white none repeat scroll 0 0;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            page-break-inside: avoid;
+            width: 100%;
+        }
+
+        .row_even td {
+            background: #bfd4f2 none repeat scroll 0 0;
+            padding: 5px 10px;
+        }
+
+        .row_odd td {
+            padding: 5px 10px;
+        }
+
+        .block_footer {
+            margin-top: 10%;
+            border-top: solid 3px #ccc;
+            display: inline-flex;
+            width: 100%
+        }
+
+        .block_footer_inner {
+            display: inline-flex;
+            margin-bottom: 4%;
+            margin-left: 4%;
+        }
+
+        .image_footer {
+            width: 64px;
+            height: 64px;
+            margin-top: 10px;
+        }
+
+        .text_footer {
+            margin-top: 16px;
+            margin-left: 10px;
+        }
+
+        <!--
+        css
+
+        -->
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="body_inner">
+        <div class="main_title_block">
+            <img class="main_logo" src="https://www.docker.com/sites/default/files/d8/2019-07/Moby-logo.png">
+            <table class="main_title">
+                <tbody>
+                <tr>
+                    <td><h1 style="margin: 0px;">Docker CheatSheet</h1></td>
+                </tr>
+                <tr>
+                    <td>por Matheus Abreu</td>
+                </tr>
+                </tbody>
+            </table> <!-- header -->
+        </div>
+        <table cellspacing="0" cellpadding="0" width="100%">
+            <tbody>
+            <tr>
+                <td class="column_1" width="50%" valign="top">
+                    <div class="block">
+                        <h3 class="block_title">Comando</h3>
+                        <table class="rows_table">
+                            <tbody>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>docker build -t nome_da_imagem . <br><br></div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>docker run -p 4000:80 nome_da_imagem <br><br></div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>docker run -d -p 4000:80 nome_da_imagem <br><br></div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>docker exec -it id_container bash</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>docker ps</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>docker ps -a</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>docker start id_container
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>docker stop id_container
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>docker kill id_container
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>docker rm id_container
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>docker rm $(docker ps -a -q)</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>docker images</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>docker rmi nome_da_imagem
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>docker rmi $(docker images -q)</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>docker tag nome_da_imagem username/repository:tag
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>docker push username/repository:tag</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>docker run username/repository:tag</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>docker system prune -a <br><br></div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>docker volume prune</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>docker network prune</div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div> <!-- column1 --> </td>
+                <td class="column_space" width="2%"></td>
+                <td class="column_2" width="50%" valign="top">
+                    <div class="block">
+                        <h3 class="block_title">Uso</h3>
+                        <table class="rows_table">
+                            <tbody>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>Cria uma imagem usando a Dockerfile do diretório atual, sem criar um
+                                        container
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>Cria e executa um container baseado na imagem fornecida, mapeando a porta 4000
+                                        do computador para a porta 80 do container
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>A mesma coisa do comando acima, porém roda o container em segundo plano (com a
+                                        flag -d)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>Acopla o terminal em um container em execução</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>Lista todos os containers ativos no momento</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>Lista todos os containers, inclusive os inativos</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>Inicia um container parado</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>Para um container em execução</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>Força a parada de um container em execução</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>Exclui um container (o container não pode estar em execução)</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>Exclui todos os containers</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>Lista todas as imagens baixadas no seu computador</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>Exclui uma imagem (nenhum container pode estar usando ela)</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>Exclui todas as imagens</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>Adiciona uma tag à uma imagem, para enviar ao Docker Hub</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>Envia uma imagem ao Docker Hub pela sua tag</div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>Cria um container baseado numa imagem do Docker Hub</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>Exclui tudo que não está sendo utilizado no momento (Containers, imagens e
+                                        redes)
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="row_even">
+                                <td colspan="1" valign="top">
+                                    <div>Exclui todos os volumes não utilizados</div>
+                                </td>
+                            </tr>
+                            <tr class="row_odd">
+                                <td colspan="1" valign="top">
+                                    <div>Exclui todas as redes não utilizadas</div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div> <!-- column2 --> </td> <!-- columns -->
+            </tr>
+            </tbody>
+        </table>
+        <div class="block_footer">
+            <div class="block_footer_inner">
+                <img class="image_footer"
+                     src="https://avatars3.githubusercontent.com/u/13948812?s=460&u=405af7bbe9f5768f6a8b200c78a827fb132caca3&v=4">
+                <table class="text_footer">
+                    <tbody>
+                    <tr>
+                        <td>Por Matheus Abreu</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/abreumatheus">https://github.com/abreumatheus</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="block_footer_inner">
+                <table class="text_footer">
+                    <tbody>
+                    <tr>
+                        <td>Última atualização em 01/05/2020</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
