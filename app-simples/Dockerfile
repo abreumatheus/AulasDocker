@@ -11,7 +11,7 @@ RUN pip install -r requirements.txt
 # Executa o arquivo requirements quando o container for criado, instalando nossos pacotes
 
 # COMANDO PARA FAZER O BUILD
-# docker build -t nome_da_imagem
+# docker build -t nome_da_imagem .
 
 # COMANDO PARA RODAR O CONTAINER
 # docker run -d -p 80:80 --name nome_do_container nome_da_imagem_base
